@@ -8,5 +8,7 @@ namespace StudentManagmentSysConsole.Model
 {
     class Teacher : User
     {
+        public List<string> Students { get; set; }
+
     }
 }
