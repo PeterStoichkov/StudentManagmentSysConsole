@@ -6,7 +6,30 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSysConsole
 {
+    public delegate string TickEventHander(object sender, DateEventArgs e); 
     class Timer
     {
+        public event TickEventHander Tick;
+
+        private string OnTick(DateEventArgs e)
+        {
+            if (Tick != null)
+            {
+                return Tick(this, e);
+            }
+            else return null;
+            
+        }
+
+        public string Start()
+        {
+            while (true)
+            {
+                DateEventArgs e = new DateEventArgs();
+                e.dateTime = DateTime.Now;             
+                System.Threading.Thread.Sleep(1000);
+                return OnTick(e);
+            }
+        }
     }
 }

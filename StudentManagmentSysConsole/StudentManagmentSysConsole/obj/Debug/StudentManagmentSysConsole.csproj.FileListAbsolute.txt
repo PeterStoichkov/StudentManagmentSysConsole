@@ -1,0 +1,7 @@
+C:\Users\peter\source\repos\StudentManagmentSysConsole\StudentManagmentSysConsole\StudentManagmentSysConsole\bin\Debug\StudentManagmentSysConsole.exe.config
+C:\Users\peter\source\repos\StudentManagmentSysConsole\StudentManagmentSysConsole\StudentManagmentSysConsole\bin\Debug\StudentManagmentSysConsole.exe
+C:\Users\peter\source\repos\StudentManagmentSysConsole\StudentManagmentSysConsole\StudentManagmentSysConsole\bin\Debug\StudentManagmentSysConsole.pdb
+C:\Users\peter\source\repos\StudentManagmentSysConsole\StudentManagmentSysConsole\StudentManagmentSysConsole\obj\Debug\StudentManagmentSysConsole.csprojAssemblyReference.cache
+C:\Users\peter\source\repos\StudentManagmentSysConsole\StudentManagmentSysConsole\StudentManagmentSysConsole\obj\Debug\StudentManagmentSysConsole.csproj.CoreCompileInputs.cache
+C:\Users\peter\source\repos\StudentManagmentSysConsole\StudentManagmentSysConsole\StudentManagmentSysConsole\obj\Debug\StudentManagmentSysConsole.exe
+C:\Users\peter\source\repos\StudentManagmentSysConsole\StudentManagmentSysConsole\StudentManagmentSysConsole\obj\Debug\StudentManagmentSysConsole.pdb

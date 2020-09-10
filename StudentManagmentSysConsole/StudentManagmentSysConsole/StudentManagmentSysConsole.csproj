@@ -49,6 +49,7 @@
     <Compile Include="Controller\OutputBoxController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
+    <Compile Include="DateEventArgs.cs" />
     <Compile Include="InputFilter.cs" />
     <Compile Include="Model\Box.cs" />
     <Compile Include="Model\Grade.cs" />
