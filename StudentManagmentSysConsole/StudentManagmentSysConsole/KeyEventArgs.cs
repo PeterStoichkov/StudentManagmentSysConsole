@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSysConsole
 {
-    class KeyEventArgs : EventArgs
+    public class KeyEventArgs : EventArgs
     {
         public ConsoleKeyInfo Cki { get; set; }
     }
