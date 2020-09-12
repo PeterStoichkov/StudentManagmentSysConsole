@@ -27,7 +27,7 @@ namespace StudentManagmentSysConsole
             {
                 DateEventArgs e = new DateEventArgs();
                 e.dateTime = DateTime.Now;             
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(50); // This should be changed somehow as for how long to sleep
                 return OnTick(e);
             }
         }

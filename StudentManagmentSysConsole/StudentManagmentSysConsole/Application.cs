@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSysConsole
 {
+    // See if you can order it better
     public delegate void KeyPressEventHandler(object sender, KeyEventArgs e);
     class Application
     {
@@ -23,21 +24,28 @@ namespace StudentManagmentSysConsole
             Taskbar taskbar = new Taskbar();
             TaskbarController tkbController = new TaskbarController(taskbar);
             KeyEventArgs keyArgs = new KeyEventArgs();
+            //
+            
             while (true)
-            {
+            {              
                 while (!input.isKeyAvailable())
                 {
+                    // Here should be the current view being rendered
                     string time = "";
                     time = timer.Start();
                     Console.SetCursorPosition(40, 20);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(time);
                     RenderTaskbar.Render(taskbar, Console.WindowHeight / 2);
-                    System.Threading.Thread.Sleep(60);
+                    System.Threading.Thread.Sleep(100);
                 }
                 keyArgs.Cki = input.GetKey();
 
+                // Here diffrent methods will be attached to the event based on the Key
+                // Triggered and deleted if needed
                 switch (keyArgs.Cki.Key)
-                {
+                {                
                     case ConsoleKey.LeftArrow:
                     case ConsoleKey.RightArrow:
                         keyPress += tkbController.ChangeSelect;

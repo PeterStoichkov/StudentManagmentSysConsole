@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSysConsole.Model
 {
+    // A custom taskbar as only one will be used but a ctor can be added for an excpantion
     class Taskbar
     {
         public List<byte> State { get; set; }

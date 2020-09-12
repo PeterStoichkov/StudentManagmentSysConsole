@@ -16,7 +16,7 @@ namespace StudentManagmentSysConsole.Controller
         {
             this.taskbar = taskbar;
         }
-
+        // This method deals with the business logic which button is selected
         public void ChangeSelect(object sender, KeyEventArgs e)
         {
             int currentPos = FindCurrentPos(taskbar);
@@ -41,12 +41,17 @@ namespace StudentManagmentSysConsole.Controller
             }
         }
 
+        // Finds the currunt button selected
         private int FindCurrentPos(Taskbar taskbar)
         {
             int pos = 0;
-            foreach(byte item in taskbar.State)
+            for(int i = 0; i < taskbar.State.Count; i++)
             {
-                if (item == 1) pos++;
+                if(taskbar.State[i] == 1)
+                {
+                    pos = i;
+                    break;
+                }
             }
             return pos;
         }
