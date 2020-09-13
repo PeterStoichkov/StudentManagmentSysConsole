@@ -19,6 +19,7 @@ namespace StudentManagmentSysConsole
         {
             Application app = new Application();
             app.Start();
+
         }
     }
 }

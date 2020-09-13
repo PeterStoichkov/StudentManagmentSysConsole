@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSysConsole.Model
 {
-    class InputBox : Box
+    struct Point
     {
-        public bool Active { get; set; }
+        public int PosX { get; set; }
 
-        public InputBox(Point topleft, int width, int height)
-            : base(topleft, height, width)
+        public int PosY { get; set; }
+
+        public Point(int x, int y)
         {
-            Active = false;
+            PosX = x;
+            PosY = y;
         }
     }
 }

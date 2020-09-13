@@ -8,5 +8,17 @@ namespace StudentManagmentSysConsole.Model
 {
     abstract class Box
     {
+        public Point TopLeft { get; set; }
+
+        public int Height { get; set; }
+
+        public int Width { get; set; }
+
+        public Box(Point topleft, int height, int width)
+        {
+            TopLeft = topleft;
+            Height = height;
+            Width = width;
+        }
     }
 }

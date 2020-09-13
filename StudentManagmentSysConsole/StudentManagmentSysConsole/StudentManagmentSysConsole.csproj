@@ -57,6 +57,7 @@
     <Compile Include="Model\Grade.cs" />
     <Compile Include="Model\InputBox.cs" />
     <Compile Include="Model\OutputBox.cs" />
+    <Compile Include="Model\Point.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Taskbar.cs" />
     <Compile Include="Model\Teacher.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Timer.cs" />
     <Compile Include="View\LoginView.cs" />
     <Compile Include="View\RenderBox.cs" />
+    <Compile Include="View\RenderOutputBox.cs" />
     <Compile Include="View\RenderTaskbar.cs" />
     <Compile Include="View\StudentView.cs" />
     <Compile Include="View\TeacherView.cs" />

@@ -16,7 +16,7 @@ namespace StudentManagmentSysConsole.Controller
         {
             this.taskbar = taskbar;
         }
-        // This method deals with the business logic which button is selected
+        // This method deals with the business logic which button is selected 
         public void ChangeSelect(object sender, KeyEventArgs e)
         {
             int currentPos = FindCurrentPos(taskbar);
