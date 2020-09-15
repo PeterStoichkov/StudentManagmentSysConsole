@@ -6,30 +6,41 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSysConsole
 {
-    public delegate string TickEventHander(object sender, DateEventArgs e); 
+    public delegate void TickEventHander(object sender, EventArgs e);
+    public delegate void KeyPressEventHandler(object sender, KeyEventArgs e);
     class Timer
     {
         public event TickEventHander Tick;
+        public event KeyPressEventHandler keyPress;
 
-        private string OnTick(DateEventArgs e)
+        private void OnTick(EventArgs e)
         {
             if (Tick != null)
             {
-                return Tick(this, e);
+                Tick(this, e);
             }
-            else return null;
-            
         }
 
-        public string Start()
+        public void OnKeyPress(KeyEventArgs e)
+        {
+            if (keyPress != null)
+            {
+                keyPress(this, e);
+            }
+        }
+
+        public void Start()
         {
             while (true)
             {
-                DateEventArgs e = new DateEventArgs();
-                e.dateTime = DateTime.Now;             
+
+                OnTick(EventArgs.Empty);
                 System.Threading.Thread.Sleep(50); // This should be changed somehow as for how long to sleep
-                return OnTick(e);
+                
             }
         }
-    }
+
+        public string ReturnTime() { return DateTime.Now.ToString(); }
+
+        }
 }

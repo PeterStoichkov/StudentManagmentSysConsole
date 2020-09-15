@@ -11,7 +11,7 @@ namespace StudentManagmentSysConsole.View
     {
         public static void Render(Taskbar taskbar, int windowHeight)
         {
-            Console.SetCursorPosition(windowHeight, 0);
+            Console.SetCursorPosition(0, windowHeight);
             for(int i = 0; i < taskbar.Text.Count; i++)
             {
                 SetColor(taskbar, i);

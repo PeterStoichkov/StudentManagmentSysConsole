@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSysConsole.View
 {
-    class LoginView : BaseView
+    class LoginView
     {
     }
 }

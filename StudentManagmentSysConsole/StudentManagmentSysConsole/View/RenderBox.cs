@@ -15,6 +15,10 @@ namespace StudentManagmentSysConsole.View
             char symbol = '+';
             int startWidth = box.TopLeft.PosX;
             int startHeight = box.TopLeft.PosY;
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+
             //Render the top and bottom boarder
             for (int i = startWidth; i <= box.Width + startWidth; i++)
             {

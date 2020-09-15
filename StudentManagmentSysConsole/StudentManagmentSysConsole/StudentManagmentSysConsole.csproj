@@ -62,7 +62,6 @@
     <Compile Include="Model\Taskbar.cs" />
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="View\BaseView.cs" />
     <Compile Include="View\Input.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="View\RenderBox.cs" />
     <Compile Include="View\RenderOutputBox.cs" />
     <Compile Include="View\RenderTaskbar.cs" />
+    <Compile Include="View\RenderTime.cs" />
     <Compile Include="View\StudentView.cs" />
     <Compile Include="View\TeacherView.cs" />
   </ItemGroup>

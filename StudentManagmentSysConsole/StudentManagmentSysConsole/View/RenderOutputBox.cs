@@ -15,6 +15,10 @@ namespace StudentManagmentSysConsole.View
             string text = outBox.Text;
             int startPosX = outBox.TopLeft.PosX + 1;
             int startPosY = outBox.TopLeft.PosY + 1;;
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+
             for (int i = 0; i < text.Length; i++)
             {
                 Console.SetCursorPosition(startPosX, startPosY);

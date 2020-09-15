@@ -17,7 +17,9 @@ namespace StudentManagmentSysConsole
         // Moved all code to the app as i had problems with the static method
         static void Main(string[] args)
         {
+            
             Application app = new Application();
+            app.BootstrapTeacherView();
             app.Start();
 
         }
