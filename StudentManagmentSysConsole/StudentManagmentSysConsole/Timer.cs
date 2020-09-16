@@ -40,7 +40,7 @@ namespace StudentManagmentSysConsole
             }
         }
 
-        public string ReturnTime() { return DateTime.Now.ToString(); }
+        public string ReturnTime() { return DateTime.Now.ToString("g"); }
 
         }
 }

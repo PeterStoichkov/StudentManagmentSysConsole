@@ -39,12 +39,13 @@ namespace StudentManagmentSysConsole
             OutputBoxController outputBoxController1 = new OutputBoxController(outputBox1);
             OutputBoxController outputBoxController2 = new OutputBoxController(outputBox2);
             InputBoxController inputBoxController = new InputBoxController(inputBox);
+            TeacherView teacherView = new TeacherView(timer, taskbar, inputBox, outputBox1, outputBox2);
 
-            TeacherView teacherView = new TeacherView();
+            BorderController borderController = new BorderController(teacherView);
 
             TeacherController teacherController = new TeacherController(timer, inputBox, outputBox1, outputBox2,
                 taskbar, input, teacherView, taskbarController,
-                outputBoxController1, outputBoxController2, inputBoxController);
+                outputBoxController1, outputBoxController2, inputBoxController, borderController);
         }
         public void BootstrapLoginView()
         {

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Controller\BorderController.cs" />
     <Compile Include="Controller\InputBoxController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\OutputBoxController.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="DateEventArgs.cs" />
     <Compile Include="InputFilter.cs" />
+    <Compile Include="IView.cs" />
     <Compile Include="KeyEventArgs.cs" />
     <Compile Include="Model\Box.cs" />
     <Compile Include="Model\Grade.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="View\RenderTime.cs" />
     <Compile Include="View\StudentView.cs" />
     <Compile Include="View\TeacherView.cs" />
+    <Compile Include="View\View.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

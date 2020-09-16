@@ -7,16 +7,32 @@ using System.Threading.Tasks;
 
 namespace StudentManagmentSysConsole.View
 {
-    class TeacherView
+    class TeacherView : View
     {
-        public void Render(Timer timer, Taskbar taskbar, InputBox inputBox,
+        
+        public Taskbar Taskbar { get; set; }
+        public InputBox InputBox { get; set; }
+        public OutputBox OutputBox1 { get; set; }
+        public OutputBox OutputBox2 { get; set; }
+
+        public TeacherView(Timer timer,Taskbar taskbar, InputBox inputBox,
             OutputBox outputBox1, OutputBox outputBox2)
+            :base(timer)
         {
-            RenderTime.Render(Console.WindowWidth - 20, 0, timer);
-            RenderTaskbar.Render(taskbar, (int)Math.Floor(Console.WindowHeight / 1.4));
-            RenderBox.Render(inputBox);
-            RenderOutputBox.Render(outputBox1);
-            RenderOutputBox.Render(outputBox2);
+            
+            Taskbar = taskbar;
+            InputBox = inputBox;
+            OutputBox1 = outputBox1;
+            OutputBox2 = outputBox2;
+        }
+
+        public override void Render()          
+        {
+            base.Render();
+            RenderTaskbar.Render(Taskbar, (int)Math.Floor(Console.WindowHeight / 1.4));
+            RenderBox.Render(InputBox);
+            RenderOutputBox.Render(OutputBox1);
+            RenderOutputBox.Render(OutputBox2);
         }
     }
 }

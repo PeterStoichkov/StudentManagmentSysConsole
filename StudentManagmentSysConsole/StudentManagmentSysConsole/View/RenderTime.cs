@@ -13,8 +13,7 @@ namespace StudentManagmentSysConsole.View
             Console.SetCursorPosition(posX, posY);
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(timer.ReturnTime().Substring(0, 14) + " " +
-                timer.ReturnTime().Substring(18, 2));
+            Console.WriteLine(timer.ReturnTime());
         }
     }
 }

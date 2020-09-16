@@ -25,12 +25,13 @@ namespace StudentManagmentSysConsole.Controller
         private TaskbarController taskbarController;   
         private OutputBoxController outputBoxController1, outputBoxController2;
         private InputBoxController inputBoxController;
+        private BorderController borderController;
 
         
 
         public TeacherController(Timer timer, InputBox inputBox, OutputBox outputBox1, OutputBox outputBox2, Taskbar taskbar,
-            Input input, TeacherView teacherView, TaskbarController taskbarController, OutputBoxController outputBoxController1, 
-            OutputBoxController outputBoxController2, InputBoxController inputBoxController)
+            Input input,TeacherView teacherView, TaskbarController taskbarController, OutputBoxController outputBoxController1, 
+            OutputBoxController outputBoxController2, InputBoxController inputBoxController, BorderController borderController)
         {
             this.timer = timer;
             this.inputBox = inputBox;
@@ -38,15 +39,17 @@ namespace StudentManagmentSysConsole.Controller
             this.outputBox2 = outputBox2;
             this.taskbar = taskbar;
             this.input = input;
-            this.teacherView = teacherView;
+            
             this.taskbarController = taskbarController;
             this.outputBoxController1 = outputBoxController1;
             this.outputBoxController2 = outputBoxController2;
             this.inputBoxController = inputBoxController;
-            
+            this.borderController = borderController;
+
+            this.teacherView = teacherView;
 
             timer.Tick += KeyActive;
-
+            timer.Tick += this.borderController.BordarChange;
         }
 
         private void KeyActive(object sender, EventArgs e)
@@ -91,7 +94,7 @@ namespace StudentManagmentSysConsole.Controller
                         break;
 
                 }
-                teacherView.Render(timer, taskbar, inputBox, outputBox1, outputBox2);
+                teacherView.Render();
                 System.Threading.Thread.Sleep(100);
             }
         }
