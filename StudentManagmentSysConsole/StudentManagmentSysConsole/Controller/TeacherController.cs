@@ -85,7 +85,10 @@ namespace StudentManagmentSysConsole.Controller
                         timer.keyPress += inputBoxController.ChangeState;
                         timer.OnKeyPress(keyArgs);
                         timer.keyPress -= inputBoxController.ChangeState;
-                        outputBoxController1.FillOutputBox(inputBoxController.GetInput());
+                        if(inputBoxController.GetInput() != null)
+                        {
+                            outputBoxController1.FillOutputBox(inputBoxController.GetInput());
+                        }                     
                         break;
                     case ConsoleKey.C:
                         timer.keyPress += outputBoxController1.ClearOutputBox;

@@ -11,11 +11,11 @@ namespace StudentManagmentSysConsole.View
     {
         public static void Render(Taskbar taskbar, int windowHeight)
         {
-            Console.SetCursorPosition(0, windowHeight);
+            Console.SetCursorPosition(1, windowHeight);
             for(int i = 0; i < taskbar.Text.Count; i++)
             {
                 SetColor(taskbar, i);
-                Console.Write("{0} \t", taskbar.Text.ElementAt(i));
+                Console.Write("{0} ", taskbar.Text.ElementAt(i));
             }
             Console.SetCursorPosition(0, 0);
         }

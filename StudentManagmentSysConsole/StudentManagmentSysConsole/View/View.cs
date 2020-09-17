@@ -16,7 +16,8 @@ namespace StudentManagmentSysConsole.View
         }
 
         public virtual void Render() {
-            RenderTime.Render(Console.WindowWidth - 20, 0, Timer);
+            RenderTime.Render(Console.WindowWidth - 23, 0, Timer);
+            Console.CursorVisible = false;
         }
     }
 }
