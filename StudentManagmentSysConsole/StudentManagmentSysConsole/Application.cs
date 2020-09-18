@@ -42,8 +42,7 @@ namespace StudentManagmentSysConsole
             InputBoxController inputBoxController = new InputBoxController(inputBox);
             TeacherView teacherView = new TeacherView(timer, taskbar, inputBox, outputBox1, outputBox2);
 
-            BorderController borderController = new BorderController(teacherView,
-                    new Box[] {outputBox1, outputBox2, inputBox});
+            BorderController borderController = new BorderController(teacherView);
 
             TeacherController teacherController = new TeacherController(timer, inputBox, outputBox1, outputBox2,
                 taskbar, input, teacherView, taskbarController,
