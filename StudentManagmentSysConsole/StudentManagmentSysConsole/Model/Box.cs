@@ -22,22 +22,11 @@ namespace StudentManagmentSysConsole.Model
             Width = width;
         }
 
-        public virtual void ChangeProps(Point change_Widht_Height)
+        public virtual void ChangeProps(Point topleft, int height, int width)
         {
-           
-            Height += change_Widht_Height.PosY;
-            Width += change_Widht_Height.PosX;
-           
-            //if (TopLeft.PosX != 1)
-            //{
-            //    TopLeft = new Point(TopLeft.PosX + change_Widht_Height.PosX, TopLeft.PosY);
-            //    Width -= change_Widht_Height.PosX;
-            //}
-            //if (TopLeft.PosY != 1)
-            //{
-            //    TopLeft = new Point(TopLeft.PosX, TopLeft.PosY + change_Widht_Height.PosY);
-            //    Height -= change_Widht_Height.PosY;
-            //}
+            TopLeft = topleft;
+            Height = height;
+            Width = width;
         }
     }
 }

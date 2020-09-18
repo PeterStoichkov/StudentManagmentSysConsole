@@ -9,12 +9,12 @@ namespace StudentManagmentSysConsole.View
 {
     static class RenderOutputBox
     {
-        public static void Render(OutputBox outBox)
+        public static void Render(OutputBox outBox, Point topLeft, int boxHeight, int boxWidth)
         {
-            RenderBox.Render(outBox);
+            RenderBox.Render(outBox, topLeft, boxHeight, boxWidth);
             string text = outBox.Text;
-            int startPosX = outBox.TopLeft.PosX + 1;
-            int startPosY = outBox.TopLeft.PosY + 1;;
+            int startPosX = topLeft.PosX + 1;
+            int startPosY = topLeft.PosY + 1;;
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
@@ -23,10 +23,10 @@ namespace StudentManagmentSysConsole.View
             {
                 Console.SetCursorPosition(startPosX, startPosY);
                 Console.Write(text[i]);
-                if (startPosX == outBox.Width + outBox.TopLeft.PosX - 1)
+                if (startPosX == boxWidth + topLeft.PosX - 1)
                 {
                     startPosY++;
-                    startPosX = outBox.TopLeft.PosX + 1;
+                    startPosX = topLeft.PosX + 1;
                 }
                 else startPosX++;
             }

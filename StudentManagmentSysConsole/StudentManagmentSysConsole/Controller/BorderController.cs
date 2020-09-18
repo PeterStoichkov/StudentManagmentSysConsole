@@ -14,13 +14,11 @@ namespace StudentManagmentSysConsole.Controller
         private int windowHeight;
         private int windowWidth;
         private IView view;
-        private Box[] boxes;
         
 
-        public BorderController(IView view, Box[] boxes)
+        public BorderController(IView view)
         {
             this.view = view;
-            this.boxes = boxes;
             this.windowHeight = Console.WindowHeight;
             this.windowWidth = Console.WindowWidth;
         }
@@ -29,13 +27,7 @@ namespace StudentManagmentSysConsole.Controller
         {
             if (windowHeight != Console.WindowHeight || windowWidth != Console.WindowWidth)
             {
-                Point changeWidthHeight = SetWindowParams();
-                foreach(Box box in boxes)
-                {
-                    box.ChangeProps(changeWidthHeight);
-                }
-                Console.Clear();
-                //System.Threading.Thread.Sleep(70);
+                Console.Clear();   
                 view.Render();
             }              
         }
