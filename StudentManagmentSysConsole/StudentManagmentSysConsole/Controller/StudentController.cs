@@ -42,42 +42,45 @@ namespace StudentManagmentSysConsole.Controller
             this.outputBoxController = outputBoxController;
             this.borderController = borderController;
 
-            
-            timer.Tick += KeyActive;
             timer.Tick += this.borderController.BordarChange;
+            timer.Tick += KeyActive;
+            
         }
 
         private void KeyActive(object sender, EventArgs e)
         {
-            KeyEventArgs keyArgs = new KeyEventArgs();
-            keyArgs.Cki = input.GetKey();
-
-            switch (keyArgs.Cki.Key)
+            while (input.isKeyAvailable())
             {
-                
-                case ConsoleKey.I:
-                    timer.keyPress += inputBoxController.ChangeState;
-                    timer.OnKeyPress(keyArgs);
-                    timer.keyPress -= inputBoxController.ChangeState;
-                    break;
-                case ConsoleKey.Enter:
-                    timer.keyPress += inputBoxController.ChangeState;
-                    timer.OnKeyPress(keyArgs);
-                    timer.keyPress -= inputBoxController.ChangeState;
-                    if (inputBoxController.GetInput() != null)
-                    {
-                        outputBoxController.FillOutputBox(inputBoxController.GetInput());
-                    }
-                    break;
-                case ConsoleKey.C:
-                    timer.keyPress += outputBoxController.ClearOutputBox;
-                    timer.OnKeyPress(keyArgs);
-                    timer.keyPress -= outputBoxController.ClearOutputBox;
-                    break;
+                KeyEventArgs keyArgs = new KeyEventArgs();
+                keyArgs.Cki = input.GetKey();
 
+                switch (keyArgs.Cki.Key)
+                {
+
+                    case ConsoleKey.I:
+                        timer.keyPress += inputBoxController.ChangeState;
+                        timer.OnKeyPress(keyArgs);
+                        timer.keyPress -= inputBoxController.ChangeState;
+                        break;
+                    case ConsoleKey.Enter:
+                        timer.keyPress += inputBoxController.ChangeState;
+                        timer.OnKeyPress(keyArgs);
+                        timer.keyPress -= inputBoxController.ChangeState;
+                        if (inputBoxController.GetInput() != null)
+                        {
+                            outputBoxController.FillOutputBox(inputBoxController.GetInput());
+                        }
+                        break;
+                    case ConsoleKey.C:
+                        timer.keyPress += outputBoxController.ClearOutputBox;
+                        timer.OnKeyPress(keyArgs);
+                        timer.keyPress -= outputBoxController.ClearOutputBox;
+                        break;
+
+                }
+                studentView.Render();
+                System.Threading.Thread.Sleep(100);
             }
-            studentView.Render();
-            System.Threading.Thread.Sleep(100);
         }
     }
 }
