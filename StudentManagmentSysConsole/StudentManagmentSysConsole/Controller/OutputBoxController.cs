@@ -20,6 +20,7 @@ namespace StudentManagmentSysConsole.Controller
         {
             this.ouBox.Text = text;
         }
+        // This method depend on the len of the input which will later not be the same as output
         public void ClearOutputBox(object sender, KeyEventArgs e)
         {
             string text = "";

@@ -9,9 +9,10 @@ namespace StudentManagmentSysConsole.View
 {
     static class RenderOutputBox
     {
-        public static void Render(OutputBox outBox, Point topLeft, int boxHeight, int boxWidth)
+        //
+        public static void Render(OutputBox outBox, Point topLeft, int boxWidth, int boxHeight)
         {
-            RenderBox.Render(outBox, topLeft, boxHeight, boxWidth);
+            RenderBox.Render(outBox, topLeft, boxWidth, boxHeight);
             string text = outBox.Text;
             int startPosX = topLeft.PosX + 1;
             int startPosY = topLeft.PosY + 1;;

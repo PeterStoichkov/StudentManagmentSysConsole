@@ -29,19 +29,14 @@ namespace StudentManagmentSysConsole.Controller
             {
                 Console.Clear();   
                 view.Render();
+                SetWindowParams();
             }              
         }
 
         // Changes the fields of the Controller but also it returns a point wich contains the change in width, height
-        public Point SetWindowParams()
-        {
-            Point changeWidthHight = new Point(Console.WindowWidth - this.windowWidth,
-                Console.WindowHeight - this.windowHeight);
-
+        private void SetWindowParams() {
             this.windowHeight = Console.WindowHeight;
             this.windowWidth = Console.WindowWidth;
-
-            return changeWidthHight;
         }
     }
 }

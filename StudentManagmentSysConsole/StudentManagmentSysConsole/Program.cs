@@ -19,7 +19,8 @@ namespace StudentManagmentSysConsole
         {
             
             Application app = new Application();
-            app.BootstrapTeacherView();
+            //app.BootstrapTeacherView();
+            app.BootstrapStudentView();
             app.Start();
 
         }

@@ -35,7 +35,7 @@ namespace StudentManagmentSysConsole.View
                     , (int)Math.Floor(Console.WindowWidth / 1.08), 4);
 
             RenderOutputBox.Render(this.OutputBox1, new Point(1, 1),
-                (int)Math.Floor(Console.WindowWidth / 1.6), (int)Math.Floor(Console.WindowHeight / 1.7) + 1);
+                (int)Math.Floor(Console.WindowWidth / 1.7), (int)Math.Floor(Console.WindowHeight / 1.7) + 1);
 
             RenderOutputBox.Render(this.OutputBox2, new Point((int)Math.Floor(Console.WindowWidth / 1.45), Console.WindowTop + 1),
                 (int)Math.Floor(Console.WindowWidth / 3.9), (int)Math.Floor(Console.WindowHeight / 1.7) + 1);
