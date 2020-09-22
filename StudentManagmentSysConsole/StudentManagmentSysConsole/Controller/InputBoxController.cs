@@ -22,6 +22,8 @@ namespace StudentManagmentSysConsole.Controller
             switch (e.Cki.Key)
             {
                 case ConsoleKey.I:
+                case ConsoleKey.U:
+                case ConsoleKey.P:
                     if (ipBox.Active)
                     {
                         int startPosX = ipBox.TopLeft.PosX + 1;

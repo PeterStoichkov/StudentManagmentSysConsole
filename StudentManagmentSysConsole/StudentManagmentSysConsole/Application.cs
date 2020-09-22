@@ -3,6 +3,7 @@ using StudentManagmentSysConsole.Model;
 using StudentManagmentSysConsole.View;
 using System;
 using System.Net.Http.Headers;
+using System.Runtime.InteropServices;
 
 namespace StudentManagmentSysConsole
 {
@@ -21,7 +22,7 @@ namespace StudentManagmentSysConsole
         {
             this.timer = new Timer();
             Input input = new Input();
-            KeyEventArgs keyArgs = new KeyEventArgs();
+            
 
             OutputBox outputBox = new OutputBox(new Point(1, 1),
                 Console.WindowLeft + 70, (int)Math.Floor(Console.WindowHeight / 1.7) + 1);
@@ -46,7 +47,7 @@ namespace StudentManagmentSysConsole
             Input input = new Input();
             Taskbar taskbar = new Taskbar();
             TaskbarController taskbarController = new TaskbarController(taskbar);
-            KeyEventArgs keyArgs = new KeyEventArgs();
+            
 
             OutputBox outputBox1 = new OutputBox(new Point(1, 1),
                 (int)Math.Floor(Console.WindowWidth / 1.7), (int)Math.Floor(Console.WindowHeight / 1.7) + 1);
@@ -70,7 +71,28 @@ namespace StudentManagmentSysConsole
         }
         public void BootstrapLoginView()
         {
+            this.timer = new Timer();
+            Input input = new Input();
 
+            InputBox inputBox1 = new InputBox(new Point(Console.WindowWidth / 2, Console.WindowHeight / 2),
+                (int)Math.Floor(Console.WindowWidth / 1.7), (int)Math.Floor(Console.WindowHeight / 1.7) + 1);
+
+            InputBox inputBox2 = new InputBox(new Point(1, (int)Math.Floor(Console.WindowHeight / 1.4) + 1)
+                    , (int)Math.Floor(Console.WindowWidth / 1.08), 4);
+
+            OutputBox outputBox = new OutputBox(new Point((int)Math.Floor(Console.WindowWidth / 1.45), Console.WindowTop + 1),
+                (int)Math.Floor(Console.WindowWidth / 3.9), (int)Math.Floor(Console.WindowHeight / 1.7) + 1);
+
+            LoginView loginView = new LoginView(timer, inputBox1, inputBox2, outputBox);
+
+            BorderController borderController = new BorderController(loginView);
+
+            OutputBoxController outputBoxController = new OutputBoxController(outputBox);
+            InputBoxController inputBoxController1 = new InputBoxController(inputBox1);
+            InputBoxController inputBoxController2 = new InputBoxController(inputBox2);
+
+            LoginController loginController = new LoginController(timer, input, loginView, inputBoxController1, inputBoxController2,
+                outputBoxController, borderController);
         }
     }
 }

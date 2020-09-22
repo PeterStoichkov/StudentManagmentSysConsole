@@ -9,5 +9,6 @@ namespace StudentManagmentSysConsole
     public class KeyEventArgs : EventArgs
     {
         public ConsoleKeyInfo Cki { get; set; }
+
     }
 }
