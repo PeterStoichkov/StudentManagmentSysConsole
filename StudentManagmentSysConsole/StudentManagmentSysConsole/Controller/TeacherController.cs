@@ -72,28 +72,28 @@ namespace StudentManagmentSysConsole.Controller
                 {
                     case ConsoleKey.LeftArrow:
                     case ConsoleKey.RightArrow:
-                        timer.keyPress += taskbarController.ChangeSelect;
+                        timer.KeyPress += taskbarController.ChangeSelect;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= taskbarController.ChangeSelect;
+                        timer.KeyPress -= taskbarController.ChangeSelect;
                         break;
                     case ConsoleKey.I:
-                        timer.keyPress += inputBoxController.ChangeState;
+                        timer.KeyPress += inputBoxController.ChangeState;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= inputBoxController.ChangeState;
+                        timer.KeyPress -= inputBoxController.ChangeState;
                         break;
                     case ConsoleKey.Enter:
-                        timer.keyPress += inputBoxController.ChangeState;
+                        timer.KeyPress += inputBoxController.ChangeState;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= inputBoxController.ChangeState;
+                        timer.KeyPress -= inputBoxController.ChangeState;
                         if(inputBoxController.GetInput() != null)
                         {
                             outputBoxController1.FillOutputBox(inputBoxController.GetInput());
                         }                     
                         break;
                     case ConsoleKey.C:
-                        timer.keyPress += outputBoxController1.ClearOutputBox;
+                        timer.KeyPress += outputBoxController1.ClearOutputBox;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= outputBoxController1.ClearOutputBox;
+                        timer.KeyPress -= outputBoxController1.ClearOutputBox;
                         break;
 
                 }

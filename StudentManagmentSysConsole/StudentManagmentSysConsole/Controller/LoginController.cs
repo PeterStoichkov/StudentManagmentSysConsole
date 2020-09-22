@@ -10,6 +10,7 @@ namespace StudentManagmentSysConsole.Controller
     class LoginController
     {
         private Timer timer;
+        private InputFilter inputFilter;
         // Models
         //-- these seem unneccessery so here we wont use them
 
@@ -20,13 +21,16 @@ namespace StudentManagmentSysConsole.Controller
         private InputBoxController inputBoxController1, inputBoxController2;
         private OutputBoxController outputBoxController;
         private BorderController borderController;
+        private FakeDBController fakeDBController;
 
         public LoginController(Timer timer, Input input, LoginView loginView, 
             InputBoxController inputBoxController1, InputBoxController inputBoxController2,
-            OutputBoxController outputBoxController, BorderController borderController
+            OutputBoxController outputBoxController, BorderController borderController, 
+            InputFilter inputFilter, FakeDBController fakeDBController
             )
         {
             this.timer = timer;
+            this.inputFilter = inputFilter;
 
             this.input = input;
             this.loginView = loginView;
@@ -35,6 +39,7 @@ namespace StudentManagmentSysConsole.Controller
             this.inputBoxController2 = inputBoxController2;
             this.outputBoxController = outputBoxController;
             this.borderController = borderController;
+            this.fakeDBController = fakeDBController;
 
             this.timer.Tick += this.borderController.BordarChange;
             this.timer.Tick += KeyActive;
@@ -58,17 +63,34 @@ namespace StudentManagmentSysConsole.Controller
                 switch (keyArgs.Cki.Key)
                 { 
                     case ConsoleKey.U:
-                        timer.keyPress += inputBoxController1.ChangeState;
+                        timer.KeyPress += inputBoxController1.ChangeState;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= inputBoxController1.ChangeState;
+                        timer.KeyPress -= inputBoxController1.ChangeState;
                         break;
                     case ConsoleKey.P:
-                        timer.keyPress += inputBoxController2.ChangeState;
+                        timer.KeyPress += inputBoxController2.ChangeState;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= inputBoxController2.ChangeState;
+                        timer.KeyPress -= inputBoxController2.ChangeState;
                         break;
                     case ConsoleKey.Enter:
-                        
+                        timer.KeyPress += inputBoxController1.ChangeState;
+                        timer.KeyPress += inputBoxController2.ChangeState;
+                        timer.OnKeyPress(keyArgs);
+                        timer.KeyPress -= inputBoxController1.ChangeState;
+                        timer.KeyPress -= inputBoxController2.ChangeState;
+
+                        LoginInfoEventArgs loginInfoEventArgs = new LoginInfoEventArgs();
+
+                        if (inputBoxController1.GetInput() != null && inputBoxController2.GetInput() != null)
+                        {
+                            loginInfoEventArgs.Username = inputFilter.GetValidatedInput(inputBoxController1.GetInput(), 1);
+                            loginInfoEventArgs.Password = inputFilter.GetValidatedInput(inputBoxController2.GetInput(), 1);
+
+                            timer.LogInfo += fakeDBController.DBEvent;
+                            timer.OnLogInfo(loginInfoEventArgs);
+                            timer.LogInfo -= fakeDBController.DBEvent;
+                        }
+                       
                         break;
 
                 }

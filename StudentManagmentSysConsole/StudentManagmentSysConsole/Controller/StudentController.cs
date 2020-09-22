@@ -58,23 +58,23 @@ namespace StudentManagmentSysConsole.Controller
                 {
 
                     case ConsoleKey.I:
-                        timer.keyPress += inputBoxController.ChangeState;
+                        timer.KeyPress += inputBoxController.ChangeState;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= inputBoxController.ChangeState;
+                        timer.KeyPress -= inputBoxController.ChangeState;
                         break;
                     case ConsoleKey.Enter:
-                        timer.keyPress += inputBoxController.ChangeState;
+                        timer.KeyPress += inputBoxController.ChangeState;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= inputBoxController.ChangeState;
+                        timer.KeyPress -= inputBoxController.ChangeState;
                         if (inputBoxController.GetInput() != null)
                         {
                             outputBoxController.FillOutputBox(inputBoxController.GetInput());
                         }
                         break;
                     case ConsoleKey.C:
-                        timer.keyPress += outputBoxController.ClearOutputBox;
+                        timer.KeyPress += outputBoxController.ClearOutputBox;
                         timer.OnKeyPress(keyArgs);
-                        timer.keyPress -= outputBoxController.ClearOutputBox;
+                        timer.KeyPress -= outputBoxController.ClearOutputBox;
                         break;
 
                 }

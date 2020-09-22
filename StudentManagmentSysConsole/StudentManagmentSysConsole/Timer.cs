@@ -8,10 +8,12 @@ namespace StudentManagmentSysConsole
 {
     public delegate void TickEventHander(object sender, EventArgs e);
     public delegate void KeyPressEventHandler(object sender, KeyEventArgs e);
+    public delegate void LoginInfoEventHandler(object sender, LoginInfoEventArgs e);
     class Timer
     {
         public event TickEventHander Tick;
-        public event KeyPressEventHandler keyPress;
+        public event KeyPressEventHandler KeyPress;
+        public event LoginInfoEventHandler LogInfo;
 
         private void OnTick(EventArgs e)
         {
@@ -23,9 +25,17 @@ namespace StudentManagmentSysConsole
 
         public void OnKeyPress(KeyEventArgs e)
         {
-            if (keyPress != null)
+            if (KeyPress != null)
             {
-                keyPress(this, e);
+                KeyPress(this, e);
+            }
+        }
+
+        public void OnLogInfo(LoginInfoEventArgs e)
+        {
+            if (LogInfo != null)
+            {
+                LogInfo(this, e);
             }
         }
 

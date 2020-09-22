@@ -52,9 +52,11 @@
     <Compile Include="Controller\TaskbarController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="DateEventArgs.cs" />
+    <Compile Include="FakeDBController.cs" />
     <Compile Include="InputFilter.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="KeyEventArgs.cs" />
+    <Compile Include="LoginInfoEventArgs.cs" />
     <Compile Include="Model\Box.cs" />
     <Compile Include="Model\Grade.cs" />
     <Compile Include="Model\InputBox.cs" />
