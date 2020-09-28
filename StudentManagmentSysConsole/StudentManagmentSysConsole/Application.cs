@@ -91,7 +91,7 @@ namespace StudentManagmentSysConsole
             InputBoxController inputBoxController1 = new InputBoxController(inputBox1);
             InputBoxController inputBoxController2 = new InputBoxController(inputBox2);
             InputFilter inputFilter = new InputFilter();
-            FakeDBController fakeDBController = new FakeDBController(this);
+            LoginDBController fakeDBController = new LoginDBController(this);
 
             LoginController loginController = new LoginController(timer, input, loginView, inputBoxController1, inputBoxController2,
                 outputBoxController, borderController, inputFilter, fakeDBController);

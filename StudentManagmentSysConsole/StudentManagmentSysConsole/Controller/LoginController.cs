@@ -21,12 +21,12 @@ namespace StudentManagmentSysConsole.Controller
         private InputBoxController inputBoxController1, inputBoxController2;
         private OutputBoxController outputBoxController;
         private BorderController borderController;
-        private FakeDBController fakeDBController;
+        private LoginDBController fakeDBController;
 
         public LoginController(Timer timer, Input input, LoginView loginView, 
             InputBoxController inputBoxController1, InputBoxController inputBoxController2,
             OutputBoxController outputBoxController, BorderController borderController, 
-            InputFilter inputFilter, FakeDBController fakeDBController
+            InputFilter inputFilter, LoginDBController fakeDBController
             )
         {
             this.timer = timer;
@@ -86,9 +86,9 @@ namespace StudentManagmentSysConsole.Controller
                             loginInfoEventArgs.Username = inputFilter.GetValidatedInput(inputBoxController1.GetInput(), 1);
                             loginInfoEventArgs.Password = inputFilter.GetValidatedInput(inputBoxController2.GetInput(), 1);
 
-                            timer.LogInfo += fakeDBController.DBEvent;
+                            timer.LogInfo += fakeDBController.LoginDBEvent;
                             timer.OnLogInfo(loginInfoEventArgs);
-                            timer.LogInfo -= fakeDBController.DBEvent;
+                            timer.LogInfo -= fakeDBController.LoginDBEvent;
                         }
                        
                         break;
