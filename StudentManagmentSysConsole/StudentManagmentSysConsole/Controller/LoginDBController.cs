@@ -24,16 +24,20 @@ namespace StudentManagmentSysConsole
 
         public void LoginDBEvent(object sender, LoginInfoEventArgs e)
         {
+           
+
             if (CheckTPassword(e) && CheckTUsrname(e))
             {
+                CreateUserT(e);
                 Console.Clear();
-                App.BootstrapTeacherView();
+                App.BootstrapTeacherView(e.User);
                 App.Start();
             }
             else if (CheckSPassword(e) && CheckSUsrname(e))
             {
+                CreateUserS(e);
                 Console.Clear();
-                App.BootstrapStudentView();
+                App.BootstrapStudentView(e.User);
                 App.Start();
             }
             else
@@ -153,5 +157,75 @@ namespace StudentManagmentSysConsole
             return valid;
         }
 
+        public void CreateUserT(LoginInfoEventArgs e)
+        {
+            OleDbCommand aCommand = new OleDbCommand("SELECT * from Teachers" +
+                                        " WHERE username = @par1 AND `password` = @par2", aConnection);
+            aCommand.Parameters.AddRange(new[] {
+                    new OleDbParameter("@par1", e.Username),
+                    new OleDbParameter("@par2", e.Password)
+                });
+
+            try
+            {
+                aConnection.Open();
+                
+                OleDbDataReader aReader = aCommand.ExecuteReader();
+                while (aReader.Read())
+                {
+                    e.User = new Model.User();
+
+                    e.User.FieldID = aReader.GetInt32(0);
+                    e.User.FirstName = aReader.GetString(1);
+                    e.User.LastName = aReader.GetString(2);
+                    e.User.Subject = aReader.GetString(3);
+                    e.User.LetterID = aReader.GetString(7);
+
+                    e.User.Password = e.Password;
+                    e.User.Username = e.Username;
+                }   
+                aReader.Close();
+                aConnection.Close();
+            }
+            catch (OleDbException ex)
+            {
+                Console.WriteLine("Error: {0}", ex.Errors[0].Message);
+            }         
+        }
+
+        public void CreateUserS(LoginInfoEventArgs e)
+        {
+            OleDbCommand aCommand = new OleDbCommand("SELECT * from Students" +
+                                        " WHERE username = @par1 AND `password` = @par2", aConnection);
+            aCommand.Parameters.AddRange(new[] {
+                    new OleDbParameter("@par1", e.Username),
+                    new OleDbParameter("@par2", e.Password)
+                });
+
+            try
+            {
+                aConnection.Open();
+                OleDbDataReader aReader = aCommand.ExecuteReader();
+                while (aReader.Read())
+                {
+                    e.User = new Model.User();
+
+                    e.User.FieldID = aReader.GetInt32(0);
+                    e.User.FirstName = aReader.GetString(1);
+                    e.User.LastName = aReader.GetString(2);
+                    e.User.Subject = aReader.GetString(3);
+                    e.User.LetterID = aReader.GetString(8);
+
+                    e.User.Password = e.Password;
+                    e.User.Username = e.Username;
+                }
+                aReader.Close();
+                aConnection.Close();
+            }
+            catch (OleDbException ex)
+            {
+                Console.WriteLine("Error: {0}", ex.Errors[0].Message);
+            }
+        }
     }
 }

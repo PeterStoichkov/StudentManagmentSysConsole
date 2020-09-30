@@ -16,6 +16,7 @@ namespace StudentManagmentSysConsole.Controller
         private InputBox inputBox;
         private OutputBox outputBox1, outputBox2;
         private Taskbar taskbar;
+        private User user;
 
         //Views
         private Input input;
@@ -31,8 +32,8 @@ namespace StudentManagmentSysConsole.Controller
 
         public TeacherController(Timer timer, InputBox inputBox, OutputBox outputBox1, OutputBox outputBox2, Taskbar taskbar,
             Input input,TeacherView teacherView, TaskbarController taskbarController, OutputBoxController outputBoxController1, 
-            OutputBoxController outputBoxController2, InputBoxController inputBoxController, BorderController borderController)
-        {
+            OutputBoxController outputBoxController2, InputBoxController inputBoxController, BorderController borderController, User user)
+        { 
             this.timer = timer;
             this.inputBox = inputBox;
             this.outputBox1 = outputBox1;
@@ -47,6 +48,7 @@ namespace StudentManagmentSysConsole.Controller
             this.borderController = borderController;
 
             this.teacherView = teacherView;
+            this.user = user;
 
             timer.Tick += KeyActive;
             timer.Tick += this.borderController.BordarChange;
@@ -95,7 +97,9 @@ namespace StudentManagmentSysConsole.Controller
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= outputBoxController1.ClearOutputBox;
                         break;
-
+                    case ConsoleKey.T:
+                        outputBoxController1.FillOutputBox(user.DisplayInfo());
+                        break;
                 }
                 teacherView.Render();
                 System.Threading.Thread.Sleep(100);

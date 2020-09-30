@@ -18,11 +18,12 @@ namespace StudentManagmentSysConsole
             this.timer.Start();     
         }
         
-        public void BootstrapStudentView()
+        public void BootstrapStudentView(User _user)
         {
             this.timer = new Timer();
             Input input = new Input();
-            
+
+            User user = _user;
 
             OutputBox outputBox = new OutputBox(new Point(1, 1),
                 Console.WindowLeft + 70, (int)Math.Floor(Console.WindowHeight / 1.7) + 1);
@@ -38,11 +39,14 @@ namespace StudentManagmentSysConsole
             BorderController borderController = new BorderController(studentView);
 
             StudentController studentController = new StudentController(timer, inputBox, outputBox,
-                studentView, input, inputBoxController, outputBoxController, borderController
+                studentView, input, inputBoxController, outputBoxController, borderController, user
                 );
         }
-        public void BootstrapTeacherView()
+        public void BootstrapTeacherView(User _user)
         {
+
+            User user = _user;
+
             this.timer = new Timer();
             Input input = new Input();
             Taskbar taskbar = new Taskbar();
@@ -67,7 +71,7 @@ namespace StudentManagmentSysConsole
 
             TeacherController teacherController = new TeacherController(timer, inputBox, outputBox1, outputBox2,
                 taskbar, input, teacherView, taskbarController,
-                outputBoxController1, outputBoxController2, inputBoxController, borderController);
+                outputBoxController1, outputBoxController2, inputBoxController, borderController, user);
         }
         public void BootstrapLoginView()
         {

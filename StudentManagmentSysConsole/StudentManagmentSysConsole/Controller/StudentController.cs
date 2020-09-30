@@ -15,6 +15,7 @@ namespace StudentManagmentSysConsole.Controller
         // Models
         private InputBox inputBox;
         private OutputBox outputBox;
+        private User user;
 
         // Views
         private StudentView studentView;
@@ -27,13 +28,14 @@ namespace StudentManagmentSysConsole.Controller
 
         public StudentController(Timer timer, InputBox inputBox, OutputBox outputBox, StudentView studentView, 
             Input input, InputBoxController inputBoxController, OutputBoxController outputBoxController,
-            BorderController borderController
+            BorderController borderController, User user
             )
         {
             this.timer = timer;
 
             this.inputBox = inputBox;
             this.outputBox = outputBox;
+            this.user = user;
 
             this.studentView = studentView;
             this.input = input;
@@ -75,6 +77,9 @@ namespace StudentManagmentSysConsole.Controller
                         timer.KeyPress += outputBoxController.ClearOutputBox;
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= outputBoxController.ClearOutputBox;
+                        break;
+                    case ConsoleKey.S:
+                        outputBoxController.FillOutputBox(user.DisplayInfo());
                         break;
 
                 }

@@ -49,17 +49,13 @@ namespace StudentManagmentSysConsole.Controller
 
             while (input.isKeyAvailable())
             {
-                // Here should be the current view being rendered                  
-
-
-
+                 
                 KeyEventArgs keyArgs = new KeyEventArgs();
                 keyArgs.Cki = input.GetKey();
 
                 // Here diffrent methods will be attached to the event based on the Key
                 // Triggered and deleted if needed
 
-                // This is a pure logic for a controller -- into a method
                 switch (keyArgs.Cki.Key)
                 { 
                     case ConsoleKey.U:
@@ -78,7 +74,7 @@ namespace StudentManagmentSysConsole.Controller
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= inputBoxController1.ChangeState;
                         timer.KeyPress -= inputBoxController2.ChangeState;
-
+                    
                         LoginInfoEventArgs loginInfoEventArgs = new LoginInfoEventArgs();
 
                         if (inputBoxController1.GetInput() != null && inputBoxController2.GetInput() != null)
