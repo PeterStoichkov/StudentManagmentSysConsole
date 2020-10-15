@@ -22,5 +22,19 @@ namespace StudentManagmentSysConsole.Model
             this.State = new List<byte> { 1, 0, 0, 0};
             this.Letter = new List<char> { 'C', 'U', 'D', 'R' };
         }
+
+        public int ReturnStateAsInt()
+        {
+            int state = 1;
+            for (int i = 0; i < State.Count; i++)
+            {
+                if(State.ElementAt(i) == 1)
+                {
+                    break;
+                }
+                state++;
+            }
+            return state;
+        }
     }
 }

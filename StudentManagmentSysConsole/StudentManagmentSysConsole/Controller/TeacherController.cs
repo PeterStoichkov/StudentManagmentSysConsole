@@ -101,6 +101,7 @@ namespace StudentManagmentSysConsole.Controller
                     case ConsoleKey.T:
                         outputBoxController1.FillOutputBox(teacher.DisplayInfo());
                         break;
+                    
                 }
                 teacherView.Render();
                 System.Threading.Thread.Sleep(100);
