@@ -173,16 +173,16 @@ namespace StudentManagmentSysConsole
                 OleDbDataReader aReader = aCommand.ExecuteReader();
                 while (aReader.Read())
                 {
-                    e.User = new Model.User();
+                    
 
-                    e.User.FieldID = aReader.GetInt32(0);
-                    e.User.FirstName = aReader.GetString(1);
-                    e.User.LastName = aReader.GetString(2);
-                    e.User.Subject = aReader.GetString(3);
-                    e.User.LetterID = aReader.GetString(7);
+                    int fieldID = aReader.GetInt32(0);
+                    string firstName = aReader.GetString(1);
+                    string lastName = aReader.GetString(2);
+                    string subject = aReader.GetString(3);
+                    string letterID = aReader.GetString(7);
 
-                    e.User.Password = e.Password;
-                    e.User.Username = e.Username;
+                    e.User = new Model.User(e.Password, e.Username, letterID,
+                        firstName, lastName, fieldID, subject);
                 }   
                 aReader.Close();
                 aConnection.Close();
@@ -208,16 +208,16 @@ namespace StudentManagmentSysConsole
                 OleDbDataReader aReader = aCommand.ExecuteReader();
                 while (aReader.Read())
                 {
-                    e.User = new Model.User();
+                    
 
-                    e.User.FieldID = aReader.GetInt32(0);
-                    e.User.FirstName = aReader.GetString(1);
-                    e.User.LastName = aReader.GetString(2);
-                    e.User.Subject = aReader.GetString(3);
-                    e.User.LetterID = aReader.GetString(8);
+                    int fieldID = aReader.GetInt32(0);
+                    string firstName = aReader.GetString(1);
+                    string lastName = aReader.GetString(2);
+                    string subject = aReader.GetString(3);
+                    string letterID = aReader.GetString(8);
 
-                    e.User.Password = e.Password;
-                    e.User.Username = e.Username;
+                    e.User = new Model.User(e.Password, e.Username, letterID,
+                        firstName, lastName, fieldID, subject);
                 }
                 aReader.Close();
                 aConnection.Close();

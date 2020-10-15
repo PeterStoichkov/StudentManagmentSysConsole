@@ -30,5 +30,17 @@ namespace StudentManagmentSysConsole.Model
             return String.Format("Firstname: {0}, Lastname: {1}, Username: {2}, Password: {3}, LetterID: {4}" +
                 ",FieldID: {5},Subject: {6}", FirstName, LastName, Username, Password, LetterID, FieldID, Subject); 
         }
+
+        public User(string password, string username, string letterID,
+                    string firstName, string lastName, int fieldID, string subject)
+        {
+            Password = password;
+            Username = username;
+            LetterID = letterID;
+            FirstName = firstName;
+            LastName = lastName;
+            FieldID = fieldID;
+            Subject = subject;
+        }
     }
 }

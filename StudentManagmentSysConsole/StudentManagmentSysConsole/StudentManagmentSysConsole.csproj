@@ -66,6 +66,7 @@
     <Compile Include="Model\Taskbar.cs" />
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="QueryCreator.cs" />
     <Compile Include="View\Input.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
