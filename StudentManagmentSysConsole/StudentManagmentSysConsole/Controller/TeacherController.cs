@@ -11,7 +11,8 @@ namespace StudentManagmentSysConsole.Controller
     class TeacherController
     {
         private Timer timer;
-        
+        private InputFilter inputFilter;
+
         //Models
         private InputBox inputBox;
         private OutputBox outputBox1, outputBox2;
@@ -30,11 +31,13 @@ namespace StudentManagmentSysConsole.Controller
 
         
 
-        public TeacherController(Timer timer, InputBox inputBox, OutputBox outputBox1, OutputBox outputBox2, Taskbar taskbar,
+        public TeacherController(Timer timer, InputFilter inputFilter, InputBox inputBox, OutputBox outputBox1, OutputBox outputBox2, Taskbar taskbar,
             Input input,TeacherView teacherView, TaskbarController taskbarController, OutputBoxController outputBoxController1, 
             OutputBoxController outputBoxController2, InputBoxController inputBoxController, BorderController borderController, User user)
         { 
             this.timer = timer;
+            this.inputFilter = inputFilter;
+
             this.inputBox = inputBox;
             this.outputBox1 = outputBox1;
             this.outputBox2 = outputBox2;
@@ -88,9 +91,9 @@ namespace StudentManagmentSysConsole.Controller
                         timer.KeyPress += inputBoxController.ChangeState;
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= inputBoxController.ChangeState;
-                        if(inputBoxController.GetInput() != null)
+                        if(inputBoxController.GetInput(2) != null)
                         {
-                            outputBoxController1.FillOutputBox(inputBoxController.GetInput());
+                            outputBoxController1.FillOutputBox(inputBoxController.GetInput(2));
                         }                     
                         break;
                     case ConsoleKey.C:

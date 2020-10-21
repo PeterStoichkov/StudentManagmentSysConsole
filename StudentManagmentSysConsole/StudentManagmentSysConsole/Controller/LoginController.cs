@@ -77,10 +77,10 @@ namespace StudentManagmentSysConsole.Controller
                     
                         LoginInfoEventArgs loginInfoEventArgs = new LoginInfoEventArgs();
 
-                        if (inputBoxController1.GetInput() != null && inputBoxController2.GetInput() != null)
+                        if (inputBoxController1.GetInput(1) != null && inputBoxController2.GetInput(1) != null)
                         {
-                            loginInfoEventArgs.Username = inputFilter.GetValidatedInput(inputBoxController1.GetInput(), 1);
-                            loginInfoEventArgs.Password = inputFilter.GetValidatedInput(inputBoxController2.GetInput(), 1);
+                            loginInfoEventArgs.Username = inputBoxController1.GetInput(1);
+                            loginInfoEventArgs.Password = inputBoxController2.GetInput(1);
 
                             timer.LogInfo += fakeDBController.LoginDBEvent;
                             timer.OnLogInfo(loginInfoEventArgs);

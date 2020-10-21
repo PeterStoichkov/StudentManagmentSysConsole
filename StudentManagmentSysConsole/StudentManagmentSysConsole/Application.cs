@@ -38,7 +38,9 @@ namespace StudentManagmentSysConsole
 
             BorderController borderController = new BorderController(studentView);
 
-            StudentController studentController = new StudentController(timer, inputBox, outputBox,
+            InputFilter inputFilter = new InputFilter();
+
+            StudentController studentController = new StudentController(timer, inputFilter, inputBox, outputBox,
                 studentView, input, inputBoxController, outputBoxController, borderController, user
                 );
         }
@@ -69,7 +71,9 @@ namespace StudentManagmentSysConsole
 
             BorderController borderController = new BorderController(teacherView);
 
-            TeacherController teacherController = new TeacherController(timer, inputBox, outputBox1, outputBox2,
+            InputFilter inputFilter = new InputFilter();
+
+            TeacherController teacherController = new TeacherController(timer, inputFilter, inputBox, outputBox1, outputBox2,
                 taskbar, input, teacherView, taskbarController,
                 outputBoxController1, outputBoxController2, inputBoxController, borderController, user);
         }

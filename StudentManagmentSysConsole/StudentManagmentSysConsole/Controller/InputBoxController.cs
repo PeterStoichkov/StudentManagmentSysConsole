@@ -11,6 +11,7 @@ namespace StudentManagmentSysConsole.Controller
     {
         private InputBox ipBox;
         private string input;
+        private InputFilter inputFilter = new InputFilter();
 
         public InputBoxController(InputBox ipBox)
         {
@@ -31,6 +32,7 @@ namespace StudentManagmentSysConsole.Controller
                         Console.SetCursorPosition(startPosX, startPosY);
                         Console.Write(">");
                         input = Console.ReadLine();
+                        inputFilter.SetInput(input);
                     }
                     else ipBox.Active = true;
                     break;
@@ -49,6 +51,12 @@ namespace StudentManagmentSysConsole.Controller
                     break;
             }
         }
-        public string GetInput() { return input; }
+        public string GetInput(byte state) {
+            if (inputFilter.GetValidatedInput(input, state) != null)
+            {
+                return inputFilter.GetValidatedInput(input, state);
+            } else return "error"; 
+        }
+
     }
 }

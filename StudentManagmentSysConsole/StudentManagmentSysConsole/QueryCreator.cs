@@ -1,4 +1,5 @@
-﻿using StudentManagmentSysConsole.Model;
+﻿using Microsoft.SqlServer.Server;
+using StudentManagmentSysConsole.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,21 @@ namespace StudentManagmentSysConsole
 
         public void CreateQuery(string input, int state)
         {
+            string[] stringArray = input.Split(' ');
             switch (state)
             {
                 case 1:
+                    switch (stringArray[0])
+                    {
+                        case "student":
+                            Query = 
+                                String.Format("INSERT INTO Students (firstname, lastname, subject, teacher, letterID)" +
+                                "VALUES ('{0}', '{1}', '{2}', '{3}' 'S')",
+                                stringArray[1], stringArray[2], User.Subject, User.FirstName + " " + User.LastName);
+                            break;
+                        case "grade":
+                            break;
+                    }
                     break;
                 case 2:
                     break;

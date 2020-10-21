@@ -11,6 +11,7 @@ namespace StudentManagmentSysConsole.Controller
     class StudentController
     {
         private Timer timer;
+        private InputFilter inputFilter;
 
         // Models
         private InputBox inputBox;
@@ -26,12 +27,13 @@ namespace StudentManagmentSysConsole.Controller
         private OutputBoxController outputBoxController;
         private BorderController borderController;
 
-        public StudentController(Timer timer, InputBox inputBox, OutputBox outputBox, StudentView studentView, 
+        public StudentController(Timer timer, InputFilter inputFilter, InputBox inputBox, OutputBox outputBox, StudentView studentView, 
             Input input, InputBoxController inputBoxController, OutputBoxController outputBoxController,
             BorderController borderController, User user
             )
         {
             this.timer = timer;
+            this.inputFilter = inputFilter;
 
             this.inputBox = inputBox;
             this.outputBox = outputBox;
@@ -69,9 +71,9 @@ namespace StudentManagmentSysConsole.Controller
                         timer.KeyPress += inputBoxController.ChangeState;
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= inputBoxController.ChangeState;
-                        if (inputBoxController.GetInput() != null)
+                        if (inputBoxController.GetInput(2) != null)
                         {
-                            outputBoxController.FillOutputBox(inputBoxController.GetInput());
+                            outputBoxController.FillOutputBox(inputBoxController.GetInput(2));
                         }
                         break;
                     case ConsoleKey.C:

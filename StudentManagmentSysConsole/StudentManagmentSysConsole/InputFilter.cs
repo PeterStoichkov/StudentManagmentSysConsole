@@ -33,45 +33,49 @@ namespace StudentManagmentSysConsole
         }
         private bool isValid(string currentInput, byte action)
         {
-            bool valid = false;
-            switch (action)
+            if(currentInput != null)
             {
-                case 1:
-                    for (int i = 0; i < currentInput.Length; i++)
-                    {
-                        char letter = currentInput[i]; int letterI = (int)letter;
-                        if ((letterI < 97 || letterI > 122) && (letterI < 65 || letterI > 90))
+                bool valid = false;
+                switch (action)
+                {
+                    case 1:
+                        for (int i = 0; i < currentInput.Length; i++)
                         {
-                            if (letterI < 48 || letterI > 57)
+                            char letter = currentInput[i]; int letterI = (int)letter;
+                            if ((letterI < 97 || letterI > 122) && (letterI < 65 || letterI > 90))
                             {
-                                valid = false;
-                                break;
-                            }
-                        }
-                        else valid = true;
-                    }
-                    break;
-                case 2:
-                    currentInput = TrimCommand(currentInput);
-                    for (int i = 0; i < currentInput.Length; i++)
-                    {
-                        char letter = currentInput[i]; int letterI = (int)letter;
-                        if ((letterI < 97 || letterI > 122) && (letterI < 65 || letterI > 90))
-                        {
-                            if (letterI < 48 || letterI > 57)
-                            {
-                                if (!(letterI == 32 || letterI == 45))
+                                if (letterI < 48 || letterI > 57)
                                 {
                                     valid = false;
                                     break;
                                 }
                             }
+                            else valid = true;
                         }
-                        else valid = true;
-                    }
-                    break;
+                        break;
+                    case 2:
+                        currentInput = TrimCommand(currentInput);
+                        for (int i = 0; i < currentInput.Length; i++)
+                        {
+                            char letter = currentInput[i]; int letterI = (int)letter;
+                            if ((letterI < 97 || letterI > 122) && (letterI < 65 || letterI > 90))
+                            {
+                                if (letterI < 48 || letterI > 57)
+                                {
+                                    if (!(letterI == 32 || letterI == 45))
+                                    {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            else valid = true;
+                        }
+                        break;
+                }
+                return valid;
             }
-            return valid;
+            return false;
         }
 
 
@@ -81,12 +85,17 @@ namespace StudentManagmentSysConsole
             command = "";
             for(int i = 0; i < splitCommand.Length; i++)
             {
-                if(splitCommand[i] != " ")
+                if(splitCommand[i] != "")
                 {
                     command += splitCommand[i].Trim() + " ";
                 }
             }
             return command.Trim();
+        }
+
+        public void SetInput(string input)
+        {
+            currentInput = input;
         }
     }
 }
