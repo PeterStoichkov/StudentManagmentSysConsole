@@ -45,7 +45,7 @@ namespace StudentManagmentSysConsole
                             case "student":
                                 Query =
                                     String.Format("INSERT INTO Students (firstname, lastname, subject, teacher, letterID)" +
-                                    "VALUES ('{0}', '{1}', '{2}', '{3}' 'S')",
+                                    "VALUES ('{0}', '{1}', '{2}', '{3}', 'S')",
                                     stringArray[1], stringArray[2], User.Subject, User.FirstName + " " + User.LastName);
                                 break;
                             case "grade":

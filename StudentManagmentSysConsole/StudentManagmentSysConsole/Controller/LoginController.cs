@@ -21,12 +21,12 @@ namespace StudentManagmentSysConsole.Controller
         private InputBoxController inputBoxController1, inputBoxController2;
         private OutputBoxController outputBoxController;
         private BorderController borderController;
-        private LoginDBController fakeDBController;
+        private LoginDBController loginDBController;
 
         public LoginController(Timer timer, Input input, LoginView loginView, 
             InputBoxController inputBoxController1, InputBoxController inputBoxController2,
             OutputBoxController outputBoxController, BorderController borderController, 
-            InputFilter inputFilter, LoginDBController fakeDBController
+            InputFilter inputFilter, LoginDBController loginDBController
             )
         {
             this.timer = timer;
@@ -39,7 +39,7 @@ namespace StudentManagmentSysConsole.Controller
             this.inputBoxController2 = inputBoxController2;
             this.outputBoxController = outputBoxController;
             this.borderController = borderController;
-            this.fakeDBController = fakeDBController;
+            this.loginDBController = loginDBController;
 
             this.timer.Tick += this.borderController.BordarChange;
             this.timer.Tick += KeyActive;
@@ -82,9 +82,9 @@ namespace StudentManagmentSysConsole.Controller
                             loginInfoEventArgs.Username = inputBoxController1.GetInput(1);
                             loginInfoEventArgs.Password = inputBoxController2.GetInput(1);
 
-                            timer.LogInfo += fakeDBController.LoginDBEvent;
+                            timer.LogInfo += loginDBController.LoginDBEvent;
                             timer.OnLogInfo(loginInfoEventArgs);
-                            timer.LogInfo -= fakeDBController.LoginDBEvent;
+                            timer.LogInfo -= loginDBController.LoginDBEvent;
                         }
                        
                         break;

@@ -49,8 +49,10 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\OutputBoxController.cs" />
     <Compile Include="Controller\StudentController.cs" />
+    <Compile Include="Controller\StudentDBController.cs" />
     <Compile Include="Controller\TaskbarController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
+    <Compile Include="Controller\TeacherDBController.cs" />
     <Compile Include="DateEventArgs.cs" />
     <Compile Include="Controller\LoginDBController.cs" />
     <Compile Include="InputFilter.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="QueryCreator.cs" />
+    <Compile Include="TeacherInfoEventArgs.cs" />
     <Compile Include="View\Input.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

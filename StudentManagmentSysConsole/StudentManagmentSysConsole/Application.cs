@@ -70,6 +70,8 @@ namespace StudentManagmentSysConsole
             OutputBoxController outputBoxController1 = new OutputBoxController(outputBox1);
             OutputBoxController outputBoxController2 = new OutputBoxController(outputBox2);
             InputBoxController inputBoxController = new InputBoxController(inputBox);
+            TeacherDBController teacherDBController = new TeacherDBController();
+
             TeacherView teacherView = new TeacherView(timer, taskbar, inputBox, outputBox1, outputBox2);
 
             BorderController borderController = new BorderController(teacherView);
@@ -79,8 +81,9 @@ namespace StudentManagmentSysConsole
             QueryCreator queryCreator = new QueryCreator(_user);
 
             TeacherController teacherController = new TeacherController(timer, inputFilter, inputBox, outputBox1, outputBox2,
-                taskbar, input, teacherView, taskbarController,
-                outputBoxController1, outputBoxController2, inputBoxController, borderController, user, queryCreator);
+                taskbar, input, teacherView, taskbarController, outputBoxController1,
+                outputBoxController2, inputBoxController, borderController,
+                user, queryCreator, teacherDBController);
         }
         public void BootstrapLoginView()
         {
