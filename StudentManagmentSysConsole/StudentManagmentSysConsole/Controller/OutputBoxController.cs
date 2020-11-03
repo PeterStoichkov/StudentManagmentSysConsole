@@ -4,28 +4,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StudentManagmentSysConsole.View;
 
 namespace StudentManagmentSysConsole.Controller
 {
     class OutputBoxController
     {
-        private OutputBox ouBox;
+        private OutputBox outBox;
 
         public OutputBoxController(OutputBox ouBox)
         {
-            this.ouBox = ouBox;
+            this.outBox = ouBox;
         }
 
         public void FillOutputBox(string text)
         {
-            this.ouBox.Text = text;
+            ClearOutputBox(this, new KeyEventArgs());
+            RenderOutputBox.Render(outBox, outBox.TopLeft, outBox.Width, outBox.Height);
+            this.outBox.Text = text;
         }
-        // This method depend on the len of the input which will later not be the same as output
         public void ClearOutputBox(object sender, KeyEventArgs e)
         {
             string text = "";
-            for(int i = 0; i <= this.ouBox.Text.Length; i++) text += " ";
-            this.ouBox.Text = text;
+            for(int i = 0; i <= (this.outBox.Height - 1)* (this.outBox.Width - 1); i++) text += " ";
+            this.outBox.Text = text;
         }
     }
 }
