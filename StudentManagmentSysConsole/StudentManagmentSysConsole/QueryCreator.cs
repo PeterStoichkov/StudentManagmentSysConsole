@@ -50,9 +50,9 @@ namespace StudentManagmentSysConsole
                                 break;
                             case "grade":
                                 Query =
-                                    String.Format("INSERT INTO Grades (grade, timestamp, student, teacher)" +
+                                    String.Format("INSERT INTO Grades (grade, `timestamp`, student, teacher)" +
                                    "VALUES ('{0}', '{1}', '{2}', '{3}')",
-                                    stringArray.Last(), DateTime.Now.ToString(), stringArray[1], stringArray[2], User.FirstName + " " + User.LastName); ;
+                                    stringArray.Last(), DateTime.Now.ToString(), stringArray[1] + " " + stringArray[2], User.FirstName + " " + User.LastName);
                                 break;
                         }
                         break;

@@ -58,5 +58,9 @@ namespace StudentManagmentSysConsole.Controller
             } else return "error"; 
         }
 
+        public void NullInput()
+        {
+            input = null;
+        }
     }
 }

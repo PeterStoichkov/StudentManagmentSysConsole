@@ -17,9 +17,7 @@ namespace StudentManagmentSysConsole
         public LoginDBController(Application app)
         {
             App = app;
-            aConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:" +
-                "\\Users\\peter\\source\\repos\\StudentManagmentSysConsole\\StudentManagmentSysConsole\\StudentManagmentSysConsole\\Data\\StudentManSysDB.accdb;" +
-                "Persist Security Info=True");
+            aConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\peter\\source\\repos\\StudentManagmentSysConsole\\StudentManagmentSysConsole\\StudentManagmentSysConsole\\Data\\StudentManSysDB.accdb");
         }
 
         public void LoginDBEvent(object sender, LoginInfoEventArgs e)
@@ -74,6 +72,7 @@ namespace StudentManagmentSysConsole
             catch (OleDbException eOl)
             {
                 Console.WriteLine("Error: {0}", eOl.Errors[0].Message);
+                aConnection.Close();
             }
             return valid;
         }
@@ -100,6 +99,7 @@ namespace StudentManagmentSysConsole
             catch (OleDbException eOl)
             {
                 Console.WriteLine("Error: {0}", eOl.Errors[0].Message);
+                aConnection.Close();
             }
             return valid;
         }
@@ -127,6 +127,7 @@ namespace StudentManagmentSysConsole
             catch (OleDbException eOl)
             {
                 Console.WriteLine("Error: {0}", eOl.Errors[0].Message);
+                aConnection.Close();
             }
             return valid;
         }
@@ -153,6 +154,7 @@ namespace StudentManagmentSysConsole
             catch (OleDbException eOl)
             {
                 Console.WriteLine("Error: {0}", eOl.Errors[0].Message);
+                aConnection.Close();
             }
             return valid;
         }
@@ -190,6 +192,7 @@ namespace StudentManagmentSysConsole
             catch (OleDbException ex)
             {
                 Console.WriteLine("Error: {0}", ex.Errors[0].Message);
+                aConnection.Close();
             }         
         }
 
@@ -225,6 +228,7 @@ namespace StudentManagmentSysConsole
             catch (OleDbException ex)
             {
                 Console.WriteLine("Error: {0}", ex.Errors[0].Message);
+                aConnection.Close();
             }
         }
     }

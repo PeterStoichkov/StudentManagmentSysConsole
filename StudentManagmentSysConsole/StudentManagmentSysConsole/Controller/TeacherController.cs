@@ -107,8 +107,8 @@ namespace StudentManagmentSysConsole.Controller
                             timer.TeacherRequest += teacherDBController.TeacherRequestEventHandler;
                             timer.OnTeacherRequest(teacherInfoEventArgs);
                             timer.TeacherRequest -= teacherDBController.TeacherRequestEventHandler;
+                            inputBoxController.NullInput();
                         }
-                        // send Query to DB and display info in outputbox
                         if(teacherInfoEventArgs.Action == 1) {
 
                             outputBoxController1.FillOutputBox(teacherDBController.ReturnOperaionResult());
