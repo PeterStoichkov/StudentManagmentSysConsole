@@ -12,6 +12,7 @@ namespace StudentManagmentSysConsole.Controller
     {
         private Timer timer;
         private InputFilter inputFilter;
+        private QueryCreator queryCreator;
 
         //Models
         private InputBox inputBox;
@@ -33,10 +34,11 @@ namespace StudentManagmentSysConsole.Controller
 
         public TeacherController(Timer timer, InputFilter inputFilter, InputBox inputBox, OutputBox outputBox1, OutputBox outputBox2, Taskbar taskbar,
             Input input,TeacherView teacherView, TaskbarController taskbarController, OutputBoxController outputBoxController1, 
-            OutputBoxController outputBoxController2, InputBoxController inputBoxController, BorderController borderController, User user)
+            OutputBoxController outputBoxController2, InputBoxController inputBoxController, BorderController borderController, User user, QueryCreator queryCreator)
         { 
             this.timer = timer;
             this.inputFilter = inputFilter;
+            this.queryCreator = queryCreator;
 
             this.inputBox = inputBox;
             this.outputBox1 = outputBox1;
@@ -64,8 +66,6 @@ namespace StudentManagmentSysConsole.Controller
             while (input.isKeyAvailable())
             {
                 // Here should be the current view being rendered                  
-                
-                
 
                 KeyEventArgs keyArgs = new KeyEventArgs();
                 keyArgs.Cki = input.GetKey();
@@ -93,8 +93,10 @@ namespace StudentManagmentSysConsole.Controller
                         timer.KeyPress -= inputBoxController.ChangeState;
                         if(inputBoxController.GetInput(2) != null)
                         {
-                            outputBoxController1.FillOutputBox(inputBoxController.GetInput(2));
-                        }                     
+                            queryCreator.CreateQuery(inputBoxController.GetInput(2), taskbar.ReturnStateAsInt());
+                        }
+                        // send Query to DB and display info in outputbox
+                        outputBoxController1.FillOutputBox(queryCreator.ReturnQuery());
                         break;
                     case ConsoleKey.C:
                         timer.KeyPress += outputBoxController1.ClearOutputBox;

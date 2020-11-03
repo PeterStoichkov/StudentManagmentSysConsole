@@ -12,6 +12,7 @@ namespace StudentManagmentSysConsole.Controller
     {
         private Timer timer;
         private InputFilter inputFilter;
+        private QueryCreator queryCreator;
 
         // Models
         private InputBox inputBox;
@@ -29,11 +30,12 @@ namespace StudentManagmentSysConsole.Controller
 
         public StudentController(Timer timer, InputFilter inputFilter, InputBox inputBox, OutputBox outputBox, StudentView studentView, 
             Input input, InputBoxController inputBoxController, OutputBoxController outputBoxController,
-            BorderController borderController, User user
+            BorderController borderController, User user, QueryCreator queryCreator
             )
         {
             this.timer = timer;
             this.inputFilter = inputFilter;
+            this.queryCreator = queryCreator;
 
             this.inputBox = inputBox;
             this.outputBox = outputBox;
@@ -73,8 +75,10 @@ namespace StudentManagmentSysConsole.Controller
                         timer.KeyPress -= inputBoxController.ChangeState;
                         if (inputBoxController.GetInput(2) != null)
                         {
-                            outputBoxController.FillOutputBox(inputBoxController.GetInput(2));
+                            queryCreator.CreateQuery(inputBoxController.GetInput(2));
                         }
+                        // send Query to DB and display info in outputbox
+                        outputBoxController.FillOutputBox(queryCreator.ReturnQuery());
                         break;
                     case ConsoleKey.C:
                         timer.KeyPress += outputBoxController.ClearOutputBox;

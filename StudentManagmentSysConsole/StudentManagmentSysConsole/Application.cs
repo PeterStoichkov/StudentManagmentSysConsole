@@ -21,6 +21,7 @@ namespace StudentManagmentSysConsole
         public void BootstrapStudentView(User _user)
         {
             this.timer = new Timer();
+
             Input input = new Input();
 
             User user = _user;
@@ -40,8 +41,10 @@ namespace StudentManagmentSysConsole
 
             InputFilter inputFilter = new InputFilter();
 
+            QueryCreator queryCreator = new QueryCreator(_user);
+
             StudentController studentController = new StudentController(timer, inputFilter, inputBox, outputBox,
-                studentView, input, inputBoxController, outputBoxController, borderController, user
+                studentView, input, inputBoxController, outputBoxController, borderController, user, queryCreator
                 );
         }
         public void BootstrapTeacherView(User _user)
@@ -73,9 +76,11 @@ namespace StudentManagmentSysConsole
 
             InputFilter inputFilter = new InputFilter();
 
+            QueryCreator queryCreator = new QueryCreator(_user);
+
             TeacherController teacherController = new TeacherController(timer, inputFilter, inputBox, outputBox1, outputBox2,
                 taskbar, input, teacherView, taskbarController,
-                outputBoxController1, outputBoxController2, inputBoxController, borderController, user);
+                outputBoxController1, outputBoxController2, inputBoxController, borderController, user, queryCreator);
         }
         public void BootstrapLoginView()
         {
