@@ -13,5 +13,7 @@ namespace StudentManagmentSysConsole
         // 0 - we will only change the db i.e. Create, Update, Delete
         // 1 - we will give output meaning we will use aReadeer i.e. Retrive
         public int Action { get; set; }
+
+        public string RawInput { get; set; }
     }
 }

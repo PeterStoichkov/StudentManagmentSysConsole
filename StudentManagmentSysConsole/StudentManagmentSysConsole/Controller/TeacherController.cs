@@ -103,6 +103,7 @@ namespace StudentManagmentSysConsole.Controller
                             else teacherInfoEventArgs.Action = 0;
 
                             teacherInfoEventArgs.Query = queryCreator.ReturnQuery();
+                            teacherInfoEventArgs.RawInput = queryCreator.Input;
 
                             timer.TeacherRequest += teacherDBController.TeacherRequestEventHandler;
                             timer.OnTeacherRequest(teacherInfoEventArgs);

@@ -59,7 +59,7 @@ namespace StudentManagmentSysConsole
                 OleDbDataReader aReader = aCommandPT.ExecuteReader();
                 while (aReader.Read())
                 {
-                    if(e.Password == aReader.GetString(6))
+                    if(e.Password == aReader.GetString(5))
                     {
                         valid = true;
                         break;
@@ -87,7 +87,7 @@ namespace StudentManagmentSysConsole
                 OleDbDataReader aReader = aCommandPT.ExecuteReader();
                 while (aReader.Read())
                 {
-                    if (e.Username == aReader.GetString(5))
+                    if (e.Username == aReader.GetString(4))
                     {
                         valid = true;
                         break;
@@ -114,7 +114,7 @@ namespace StudentManagmentSysConsole
                 OleDbDataReader aReader = aCommandPT.ExecuteReader();
                 while (aReader.Read())
                 {
-                    if (e.Password == aReader.GetString(7))
+                    if (e.Password == aReader.GetString(6))
                     {
                         valid = true;
                         break;
@@ -142,7 +142,7 @@ namespace StudentManagmentSysConsole
                 OleDbDataReader aReader = aCommandPT.ExecuteReader();
                 while (aReader.Read())
                 {
-                    if (e.Username == aReader.GetString(6))
+                    if (e.Username == aReader.GetString(5))
                     {
                         valid = true;
                         break;
@@ -181,7 +181,7 @@ namespace StudentManagmentSysConsole
                     string firstName = aReader.GetString(1);
                     string lastName = aReader.GetString(2);
                     string subject = aReader.GetString(3);
-                    string letterID = aReader.GetString(7);
+                    string letterID = aReader.GetString(6);
 
                     e.User = new Model.User(e.Password, e.Username, letterID,
                         firstName, lastName, fieldID, subject);
@@ -217,7 +217,7 @@ namespace StudentManagmentSysConsole
                     string firstName = aReader.GetString(1);
                     string lastName = aReader.GetString(2);
                     string subject = aReader.GetString(3);
-                    string letterID = aReader.GetString(8);
+                    string letterID = aReader.GetString(7);
 
                     e.User = new Model.User(e.Password, e.Username, letterID,
                         firstName, lastName, fieldID, subject);

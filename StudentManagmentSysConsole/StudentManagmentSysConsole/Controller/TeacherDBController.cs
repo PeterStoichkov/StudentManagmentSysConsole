@@ -45,9 +45,21 @@ namespace StudentManagmentSysConsole.Controller
                         OleDbDataReader aReader = aCommand.ExecuteReader();
                         while (aReader.Read())
                         {
-                            ReturnInfo += string.Format("Name: {0}\n Subject: {1}\n Grades: {2}\n Teacher: {3}",
-                                aReader.GetString(1) + aReader.GetString(2),
-                                aReader.GetString(3), aReader.GetString(4), aReader.GetString(5));  
+                            ReturnInfo += string.Format("Name: {0}\n Subject: {1}\n Teacher: {2}\n Grades: ",
+                                aReader.GetString(1) + " " + aReader.GetString(2),
+                                aReader.GetString(3), aReader.GetString(4));  
+                        }
+                        aReader.Close();
+                        aConnection.Close();
+
+                        string[] rawInput = e.RawInput.Split(' ');
+                        aCommand = new OleDbCommand(String.Format("SELECT * FROM Grades WHERE student = '{0}'", rawInput[1] + " " + rawInput[2]), aConnection);
+
+                        aConnection.Open();
+                        aReader = aCommand.ExecuteReader();
+                        while (aReader.Read())
+                        {
+                            ReturnInfo += string.Format("{0}, ", aReader.GetString(1));
                         }
                         aReader.Close();
                         aConnection.Close();

@@ -35,6 +35,8 @@ namespace StudentManagmentSysConsole
         public void CreateQuery(string input, int state)
         {
             string[] stringArray = input.Split(' ');
+            Input = input;
+            State = state;
             if(stringArray.Length >= 2 && (stringArray[0] == "grade" || stringArray[0] == "student"))
             {
                 switch (state)
@@ -44,9 +46,10 @@ namespace StudentManagmentSysConsole
                         {
                             case "student":
                                 Query =
-                                    String.Format("INSERT INTO Students (firstname, lastname, subject, teacher, letterID)" +
-                                    "VALUES ('{0}', '{1}', '{2}', '{3}', 'S')",
-                                    stringArray[1], stringArray[2], User.Subject, User.FirstName + " " + User.LastName);
+                                    String.Format("INSERT INTO Students (firstname, lastname, subject, teacher, username, `password` letterID)" +
+                                                  "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', 'S')",
+                                    stringArray[1], stringArray[2], User.Subject, User.FirstName + " " + User.LastName,
+                                    Generator.GenPass(), Generator.GenNickname());
                                 break;
                             case "grade":
                                 Query =
@@ -94,7 +97,7 @@ namespace StudentManagmentSysConsole
                     case 4:
                         Query =
                             String.Format("SELECT * FROM Students WHERE firstname = '{0}' AND lastname = '{1}'",
-                            stringArray[1], stringArray[2]);
+                                        stringArray[1], stringArray[2]);
                         break;
                 }
             }
