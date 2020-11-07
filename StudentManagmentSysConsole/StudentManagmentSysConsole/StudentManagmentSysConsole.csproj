@@ -55,6 +55,7 @@
     <Compile Include="Controller\TeacherDBController.cs" />
     <Compile Include="DateEventArgs.cs" />
     <Compile Include="Controller\LoginDBController.cs" />
+    <Compile Include="Generator.cs" />
     <Compile Include="InputFilter.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="KeyEventArgs.cs" />
