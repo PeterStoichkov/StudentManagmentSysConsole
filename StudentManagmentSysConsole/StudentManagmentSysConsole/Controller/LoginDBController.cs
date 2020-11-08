@@ -42,6 +42,8 @@ namespace StudentManagmentSysConsole
             {
                 Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 + 11);
                 Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("                                   ");
+                Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 + 11);
                 Console.WriteLine("* Wrong username or password");
                 Console.SetCursorPosition(0, 0);
                 Console.ForegroundColor = ConsoleColor.White;

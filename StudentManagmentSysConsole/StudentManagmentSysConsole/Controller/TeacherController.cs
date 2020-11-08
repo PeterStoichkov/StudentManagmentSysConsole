@@ -108,14 +108,18 @@ namespace StudentManagmentSysConsole.Controller
                             timer.TeacherRequest += teacherDBController.TeacherRequestEventHandler;
                             timer.OnTeacherRequest(teacherInfoEventArgs);
                             timer.TeacherRequest -= teacherDBController.TeacherRequestEventHandler;
-                            inputBoxController.NullInput();
+
+                            
                         }
-                        if(teacherInfoEventArgs.Action == 1) {
+                        if(teacherInfoEventArgs.Action == 1 && queryCreator.ReturnQuery() != null) {
 
                             outputBoxController1.FillOutputBox(teacherDBController.ReturnOperaionResult());
                         } else { 
                             outputBoxController2.FillOutputBox(teacherDBController.ReturnOperaionResult());
                         }
+                        inputBoxController.NullInput();
+                        queryCreator.NullQeury();
+                        teacherDBController.NullOperationResult();
                         break;
                     case ConsoleKey.C:
                         timer.KeyPress += outputBoxController1.ClearOutputBox;

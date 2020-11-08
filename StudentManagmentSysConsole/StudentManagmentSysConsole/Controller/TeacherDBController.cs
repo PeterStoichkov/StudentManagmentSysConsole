@@ -45,7 +45,7 @@ namespace StudentManagmentSysConsole.Controller
                         OleDbDataReader aReader = aCommand.ExecuteReader();
                         while (aReader.Read())
                         {
-                            ReturnInfo += string.Format("Name: {0}\n Subject: {1}\n Teacher: {2}\n Grades: ",
+                            ReturnInfo += string.Format("Name: {0} Subject: {1} Teacher: {2} Grades: ",
                                 aReader.GetString(1) + " " + aReader.GetString(2),
                                 aReader.GetString(3), aReader.GetString(4));  
                         }
@@ -83,6 +83,10 @@ namespace StudentManagmentSysConsole.Controller
             {
                 return "Operation faild!";
             }
+        }
+        public void NullOperationResult()
+        {
+            ReturnInfo = null;
         }
     }
 }

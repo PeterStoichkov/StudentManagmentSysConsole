@@ -59,11 +59,15 @@ namespace StudentManagmentSysConsole.Controller
                 switch (keyArgs.Cki.Key)
                 { 
                     case ConsoleKey.U:
+                        Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 + 11);
+                        Console.WriteLine("                                   ");
                         timer.KeyPress += inputBoxController1.ChangeState;
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= inputBoxController1.ChangeState;
                         break;
                     case ConsoleKey.P:
+                        Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 + 11);
+                        Console.WriteLine("                                   ");
                         timer.KeyPress += inputBoxController2.ChangeState;
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= inputBoxController2.ChangeState;
@@ -74,7 +78,10 @@ namespace StudentManagmentSysConsole.Controller
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= inputBoxController1.ChangeState;
                         timer.KeyPress -= inputBoxController2.ChangeState;
-                    
+
+
+
+
                         LoginInfoEventArgs loginInfoEventArgs = new LoginInfoEventArgs();
 
                         if (inputBoxController1.GetInput(1) != null && inputBoxController2.GetInput(1) != null)
@@ -86,7 +93,16 @@ namespace StudentManagmentSysConsole.Controller
                             timer.OnLogInfo(loginInfoEventArgs);
                             timer.LogInfo -= loginDBController.LoginDBEvent;
                         }
-                       
+                        else
+                        {
+                            Console.SetCursorPosition(Console.WindowWidth / 2 - 10, Console.WindowHeight / 2 + 11);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("* Didn't enter username or password");
+                            Console.SetCursorPosition(0, 0);
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        inputBoxController1.NullInput();
+                        inputBoxController2.NullInput();
                         break;
 
                 }

@@ -24,12 +24,8 @@ namespace StudentManagmentSysConsole
         }
         
         public string ReturnQuery()
-        {
-            if (Query != null)
-            {
-                return Query;
-            }
-            else return "Query not created!";
+        {             
+            return Query;
         }
 
         public void CreateQuery(string input, int state)
@@ -37,7 +33,7 @@ namespace StudentManagmentSysConsole
             string[] stringArray = input.Split(' ');
             Input = input;
             State = state;
-            if(stringArray.Length >= 2 && (stringArray[0] == "grade" || stringArray[0] == "student"))
+            if(stringArray.Length > 2 && (stringArray[0] == "grade" || stringArray[0] == "student"))
             {
                 switch (state)
                 {
@@ -46,7 +42,7 @@ namespace StudentManagmentSysConsole
                         {
                             case "student":
                                 Query =
-                                    String.Format("INSERT INTO Students (firstname, lastname, subject, teacher, username, `password` letterID)" +
+                                    String.Format("INSERT INTO Students (firstname, lastname, subject, teacher, `username`, `password`, letterID)" +
                                                   "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', 'S')",
                                     stringArray[1], stringArray[2], User.Subject, User.FirstName + " " + User.LastName,
                                     Generator.GenPass(), Generator.GenNickname());
@@ -126,6 +122,10 @@ namespace StudentManagmentSysConsole
                                             User.FirstName, User.LastName);
                     break;
             }
+        }
+        public void NullQeury()
+        {
+            Query = null;
         }
     }
 }

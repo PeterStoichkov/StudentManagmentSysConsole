@@ -24,7 +24,7 @@ namespace StudentManagmentSysConsole.View
             {
                 Console.SetCursorPosition(startPosX, startPosY);
                 Console.Write(text[i]);
-                if (startPosX == boxWidth + topLeft.PosX - 1)
+                if (startPosX == boxWidth + topLeft.PosX - 1 )
                 {
                     startPosY++;
                     startPosX = topLeft.PosX + 1;

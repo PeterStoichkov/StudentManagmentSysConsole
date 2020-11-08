@@ -55,7 +55,7 @@ namespace StudentManagmentSysConsole.Controller
             if (inputFilter.GetValidatedInput(input, state) != null)
             {
                 return inputFilter.GetValidatedInput(input, state);
-            } else return "error"; 
+            } else return null; 
         }
 
         public void NullInput()
