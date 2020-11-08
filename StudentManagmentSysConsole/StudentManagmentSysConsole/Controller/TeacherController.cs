@@ -123,8 +123,10 @@ namespace StudentManagmentSysConsole.Controller
                         break;
                     case ConsoleKey.C:
                         timer.KeyPress += outputBoxController1.ClearOutputBox;
+                        timer.KeyPress += outputBoxController2.ClearOutputBox;
                         timer.OnKeyPress(keyArgs);
                         timer.KeyPress -= outputBoxController1.ClearOutputBox;
+                        timer.KeyPress -= outputBoxController2.ClearOutputBox;
                         break;
                     case ConsoleKey.T:
                         outputBoxController1.FillOutputBox(teacher.DisplayInfo());

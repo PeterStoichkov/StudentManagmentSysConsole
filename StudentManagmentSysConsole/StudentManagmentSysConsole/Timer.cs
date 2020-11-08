@@ -10,18 +10,28 @@ namespace StudentManagmentSysConsole
     public delegate void KeyPressEventHandler(object sender, KeyEventArgs e);
     public delegate void LoginInfoEventHandler(object sender, LoginInfoEventArgs e);
     public delegate void TeacherRequestEventHandler(object sender, TeacherInfoEventArgs e);
+    public delegate void StudentRequestEventHandler(object sender, StudentInfoEventArgs e);
     class Timer
     {
         public event TickEventHander Tick;
         public event KeyPressEventHandler KeyPress;
         public event LoginInfoEventHandler LogInfo;
         public event TeacherRequestEventHandler TeacherRequest;
+        public event StudentRequestEventHandler StudentRequest;
 
         public void OnTeacherRequest(TeacherInfoEventArgs e)
         {
             if(TeacherRequest != null)
             {
                 TeacherRequest(this, e);
+            }
+        }
+
+        public void OnStudentRequest(StudentInfoEventArgs e)
+        {
+            if (StudentRequest != null)
+            {
+                StudentRequest(this, e);
             }
         }
 

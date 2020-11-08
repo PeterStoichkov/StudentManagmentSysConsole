@@ -27,10 +27,11 @@ namespace StudentManagmentSysConsole.Controller
         private InputBoxController inputBoxController;
         private OutputBoxController outputBoxController;
         private BorderController borderController;
+        private StudentDBController studentDBController;
 
         public StudentController(Timer timer, InputFilter inputFilter, InputBox inputBox, OutputBox outputBox, StudentView studentView, 
             Input input, InputBoxController inputBoxController, OutputBoxController outputBoxController,
-            BorderController borderController, User user, QueryCreator queryCreator
+            BorderController borderController, User user, QueryCreator queryCreator, StudentDBController studentDBController
             )
         {
             this.timer = timer;
@@ -48,6 +49,7 @@ namespace StudentManagmentSysConsole.Controller
             this.inputBoxController = inputBoxController;
             this.outputBoxController = outputBoxController;
             this.borderController = borderController;
+            this.studentDBController = studentDBController;
 
             timer.Tick += this.borderController.BordarChange;
             timer.Tick += KeyActive;
@@ -59,6 +61,7 @@ namespace StudentManagmentSysConsole.Controller
             while (input.isKeyAvailable())
             {
                 KeyEventArgs keyArgs = new KeyEventArgs();
+                StudentInfoEventArgs studentInfoEventArgs = new StudentInfoEventArgs();
                 keyArgs.Cki = input.GetKey();
 
                 switch (keyArgs.Cki.Key)
@@ -76,9 +79,22 @@ namespace StudentManagmentSysConsole.Controller
                         if (inputBoxController.GetInput(2) != null)
                         {
                             queryCreator.CreateQuery(inputBoxController.GetInput(2));
+
+                            
+                            studentInfoEventArgs.Query = queryCreator.ReturnQuery();
+                            studentInfoEventArgs.RawInput = queryCreator.Input;
+                            studentInfoEventArgs.User = queryCreator.User;
+
+                            timer.StudentRequest += studentDBController.StudentRequestEventHandler;
+                            timer.OnStudentRequest(studentInfoEventArgs);
+                            timer.StudentRequest -= studentDBController.StudentRequestEventHandler;
+
+                            outputBoxController.FillOutputBox(studentDBController.ReturnOperaionResult());
                         }
-                        // send Query to DB and display info in outputbox
-                        outputBoxController.FillOutputBox(queryCreator.ReturnQuery());
+                        
+                        inputBoxController.NullInput();
+                        queryCreator.NullQeury();
+                        studentDBController.NullOperationResult();
                         break;
                     case ConsoleKey.C:
                         timer.KeyPress += outputBoxController.ClearOutputBox;

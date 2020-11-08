@@ -34,6 +34,7 @@ namespace StudentManagmentSysConsole
 
             OutputBoxController outputBoxController = new OutputBoxController(outputBox);
             InputBoxController inputBoxController = new InputBoxController(inputBox);
+            StudentDBController studentDBController = new StudentDBController();
 
             StudentView studentView = new StudentView(timer, inputBox, outputBox);
 
@@ -43,8 +44,10 @@ namespace StudentManagmentSysConsole
 
             QueryCreator queryCreator = new QueryCreator(_user);
 
+
             StudentController studentController = new StudentController(timer, inputFilter, inputBox, outputBox,
-                studentView, input, inputBoxController, outputBoxController, borderController, user, queryCreator
+                studentView, input, inputBoxController, outputBoxController, borderController, user, queryCreator,
+                studentDBController
                 );
         }
         public void BootstrapTeacherView(User _user)

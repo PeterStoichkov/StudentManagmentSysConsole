@@ -68,8 +68,8 @@ namespace StudentManagmentSysConsole
                                 break;
                             case "grade":
                                 Query =
-                                    String.Format("UPDATE Grades SET grade = '{0}' WHERE student = '{1}'",
-                                    stringArray[3], stringArray[1] + " " + stringArray[2]);
+                                    String.Format("UPDATE Grades SET grade = '{0}' WHERE student = '{1}' AND grade = '{2}'",
+                                    stringArray[4], stringArray[1] + " " + stringArray[2], stringArray[3]);
                                 break;
                         }
                         break;
@@ -101,6 +101,7 @@ namespace StudentManagmentSysConsole
 
         public void CreateQuery(string input)
         {
+            Input = input;
             switch (input)
             {
                 case "G":
@@ -116,9 +117,7 @@ namespace StudentManagmentSysConsole
                         User.FirstName, User.LastName);
                     break;
                 case "A":
-                    Query = String.Format("SELECT * FROM Students WHERE firstname = '{0}' AND lastname = '{1}'" +
-                                          "UNION" +
-                                          "SELECT * FROM Grades WHERE student = '{0} {1}'",
+                    Query = String.Format("SELECT * FROM Students WHERE firstname = '{0}' AND lastname = '{1}'",
                                             User.FirstName, User.LastName);
                     break;
             }

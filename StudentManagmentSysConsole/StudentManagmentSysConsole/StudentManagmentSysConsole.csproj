@@ -70,6 +70,7 @@
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="QueryCreator.cs" />
+    <Compile Include="StudentInfoEventArgs.cs" />
     <Compile Include="TeacherInfoEventArgs.cs" />
     <Compile Include="View\Input.cs" />
     <Compile Include="Program.cs" />

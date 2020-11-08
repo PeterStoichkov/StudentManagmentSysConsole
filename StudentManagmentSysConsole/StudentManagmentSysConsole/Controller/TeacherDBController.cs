@@ -27,10 +27,14 @@ namespace StudentManagmentSysConsole.Controller
                     {
                         OleDbCommand aCommand = new OleDbCommand(e.Query, aConnection);
                         aConnection.Open();
-                        aCommand.ExecuteNonQuery();
+                        int recordsAffected = aCommand.ExecuteNonQuery();
                         aConnection.Close();
-                        ReturnInfo = string.Format("Operation was successful, the change was made at {0}", DateTime.Now.ToString("g"));
+                        if(recordsAffected != 0)
+                        {
+                            ReturnInfo = string.Format("Operation was successful, the change was made at {0}", DateTime.Now.ToString("g"));
+                        }
                     }
+                       
                     catch (OleDbException Ole)
                     {
                         Console.WriteLine("Error: {0}", Ole.Errors[0].Message);
